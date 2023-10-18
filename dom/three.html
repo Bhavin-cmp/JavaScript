@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Remove</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <input type="text" name="languageName" id="languageName" />
+    <button onclick="getValue()">Click Me</button>
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+  </body>
+  <script>
+    function addLanguage(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${langName}`;
+
+      document.querySelector(".language").appendChild(li);
+    }
+
+    function getValue() {
+      const languageInput = document.querySelector("#languageName"); // Get the input element
+      const languageName = languageInput.value; // Get the input's value
+      console.log("first", languageName);
+      addLanguage(languageName);
+      languageInput.value = ""; // Clear the input field
+    }
+    function addOptLanguage(langName) {
+      const element = document.createElement("li");
+      element.appendChild(document.createTextNode(langName));
+
+      document.querySelector(".language").appendChild(element);
+    }
+    addOptLanguage("goLang");
+    addOptLanguage("goLang4");
+    addOptLanguage("goLang1");
+    addOptLanguage("goLang2");
+
+    //Edit
+
+    const editList = document.querySelector("li:nth-child(2)");
+    editList.innerHTML = "editElement"; // This work but not in optimize way...!
+    const newEle = document.createElement("li");
+    newEle.textContent = "mojo";
+    editList.replaceWith(newEle);
+
+    //Edit Other
+    const editFirst = document.querySelector("li:first-child");
+    editFirst.outerHTML = "<li>TypeScript</li>";
+
+    //Delete
+
+    const removeEle = document.querySelector("li:last-child");
+    removeEle.remove();
+  </script>
+</html>

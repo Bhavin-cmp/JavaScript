@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating Element</title>
+  </head>
+  <body style="background-color: #212121; color: steelblue"></body>
+  <script>
+    /*   const div = document.createElement("div");
+    div.className = "main";
+    div.id = Math.round(Math.random() * 10 + 1);
+    div.setAttribute("title", "generated title");
+    div.style.backgroundColor = "gray" ;
+    div.style.padding = "12px";
+    // div.innerHTML = "First Create Element Using Javascript";
+
+    const divText = document.createTextNode(
+      "First Element Created With Javascript"
+    );
+    div.appendChild(divText);
+    document.body.appendChild(div);
+
+    console.log(div); */
+    function createDivWithAttributes(
+      className,
+      title,
+      backgroundColor,
+      textContent
+    ) {
+      const div = document.createElement("div");
+      div.className = className;
+      div.id = Math.round(Math.random() * 10 + 1);
+      div.setAttribute("title", title);
+      div.style.backgroundColor = backgroundColor;
+      div.style.padding = "12px";
+
+      const divText = document.createTextNode(textContent);
+      div.appendChild(divText);
+
+      return div;
+    }
+
+    // Example usage of the function
+    const newDiv = createDivWithAttributes(
+      "main",
+      "generated title",
+      "red",
+      "First Element Created With Javascript"
+    );
+
+    document.body.appendChild(newDiv);
+    console.log(newDiv);
+  </script>
+</html>
